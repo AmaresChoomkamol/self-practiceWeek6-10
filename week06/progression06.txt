@@ -1,0 +1,80 @@
+1. Higher-order function (function ที่รับ function เป็น parameter)
+
+ใช้ function greet ที่รับชื่อและ function formatter มาใช้งาน เช่น แสดงข้อความที่กำหนดเอง
+
+const greet = (name, formatter) => formatter(name)
+
+2. Nested Function (function ซ้อน function)
+
+ใส่ function ไว้ข้างใน function เช่น square อยู่ใน addSquares
+
+function addSquares(a, b) {
+  function square(x) {
+    return x * x
+  }
+  return square(a) + square(b)
+}
+
+3. Scope (ขอบเขตตัวแปร) และ Shadowing
+
+ทดสอบการเข้าถึงตัวแปร global และ local ใน function และการประกาศตัวแปรซ้ำกันใน scope เดียวกัน
+
+let mid = 20
+let final = 5
+function sum() {
+  return mid + final
+}
+
+4. Closure (จำค่าจากตัวเดิม)
+
+ใช้สร้าง function ที่จำค่าได้ เช่น makeAdder หรือ idGenerator
+
+function makeAdder(x) {
+  return function(y) {
+    return x + y
+  }
+}
+
+function idGenerator() {
+  let Id = 0
+  return function () {
+    Id += 1
+    return Id
+  }
+}
+
+5. Function Return Function
+
+ใช้ function หนึ่งคืนอีก function หนึ่งกลับมา เช่น outerFunction ช่วยให้สามารถสร้าง function แบบเจาะจงค่าไว้ล่วงหน้าได้
+
+function outerFunction(a){
+  return function add(b){
+    return a + b
+  }
+}
+
+6. การจัดการข้อมูลใน Array ของ Object
+
+มี array quotes ที่เก็บ quote หลายอันไว้ และใช้ function เพิ่ม ลบ แก้ไข และดึงข้อมูล
+
+addQuote: เพิ่ม quote ใหม่
+
+deleteQuote: ลบ quote โดยใช้ id
+
+updateQuote: แก้ไข quote ตาม id
+
+getAllQuotes: แสดงข้อมูลทั้งหมด
+
+const quotes = [
+  { id: 1, content: "...", author: "..." }
+]
+
+7. การใช้ loop เพื่อจัดการกับ array ของ object
+
+ใช้ for loop เพื่อวนเช็คเงื่อนไข ลบ อัปเดตข้อมูลตาม id
+
+for(let i = 0; i < quotes.length; i++){
+  if(id === quotes[i].id){
+    // ทำบางอย่าง
+  }
+}

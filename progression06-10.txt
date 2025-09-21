@@ -1,0 +1,11 @@
+Week 6
+
+ฝึกเขียน Higher-order Function
+ใช้ function เป็น argument เช่น greet(name, formatter)
+สร้าง Nested Function และ Nested Arrow Function
+เข้าใจ Scope และ Shadowing ของตัวแปร
+สร้าง Closure เพื่อให้ function จำค่าได้ เช่น makeAdder idGenerator
+คืน function จาก function เช่น outerFunction(a)(b)
+ฝึกจัดการข้อมูลใน array ของ object
+สร้าง function สำหรับเพิ่ม ลบ แก้ไข และดึงข้อมูลจาก array
+ใช้ for loop เพื่อค้นหาและอัปเดตข้อมูลใน array ตาม id

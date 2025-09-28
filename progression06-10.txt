@@ -9,3 +9,12 @@ Week 6
 ฝึกจัดการข้อมูลใน array ของ object
 สร้าง function สำหรับเพิ่ม ลบ แก้ไข และดึงข้อมูลจาก array
 ใช้ for loop เพื่อค้นหาและอัปเดตข้อมูลใน array ตาม id
+
+Week 7
+
+ฝึกใช้ document.documentElement document.firstChild และ document.firstElementChild
+เข้าใจความต่างของ childNodes (รวม Text และ Comment Node) และ children (เฉพาะ Element Node)
+ใช้ document.createElement("p") แล้วเพิ่มด้วย divElement.appendChild(pElement)
+ใช้ textContent สำหรับข้อความล้วน และ innerHTML สำหรับเนื้อหาที่มี Tag HTML
+ใช้ nodeType เพื่อระบุว่าเป็น Element Attribute หรือ Text Node
+เปรียบเทียบ innerHTML innerText และ textContent

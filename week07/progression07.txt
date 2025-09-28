@@ -1,0 +1,34 @@
+1. การเข้าถึง Node และ Element ใน DOM
+
+เข้าถึง Node ระดับบนสุด เช่น document.documentElement <html> document.firstChild มักจะเป็น <!DOCTYPE html> และ document.firstElementChild
+childNodes (NodeList) ได้มาหมดทุกอย่างที่เป็นลูกทั้ง Element <p> <span> Text Node และ Comment Node
+children (HTMLCollection) ได้มาแค่ Element Node เท่านั้นคือพวก Tag HTML จริงๆ
+
+2. การสร้างและจัดการ Element และ Attribute
+
+สร้าง Element ใช้ document.createElement("p") เพื่อสร้าง Tag เปล่าๆ
+ใส่เนื้อหา เช่น pElement.textContent = "INT141" ใส่เป็น ข้อความล้วนๆ
+pElement.innerHTML = "<i>Sample Content</i>" ใส่เป็น HTML จะตีความ Tag HTML ข้างใน
+เพิ่มเข้าหน้าเว็บ เช่น divElement.appendChild(pElement) เพื่อนำ Element ที่สร้างเสร็จแล้วไปต่อท้าย Element แม่
+กำหนดค่า เช่น pElement.setAttribute("id", "int141")
+ดึงค่า เช่น pElement.getAttribute('id')
+วนดูทั้งหมด เช่น pElement.attributes เพื่อวนลูปดู Attribute ทั้งหมดที่ Element นั้นมี
+
+3. ตรวจสอบ Node Type
+
+Node.ELEMENT_NODE (สำหรับ Tag HTML)
+Node.ATTRIBUTE_NODE
+Node.TEXT_NODE
+ตัวอย่าง เช่น if (document.body.nodeType === Node.ELEMENT_NODE)
+
+4. ความแตกต่างของ innerHTML, innerText, textContent
+
+element.innerHTML คืนค่าเนื้อหา HTML ภายใน Element รวมถึง Tag ต่างๆด้วย
+ตัวอย่าง เช่น <b>Hello</b><span style="display: none">hidden</span>world 
+จะได้ "<b>Hello</b> <span style=\"display: none\">hidden</span> world"
+
+element.innerText คืนค่าเฉพาะเนื้อหาข้อความที่แสดงผลบนหน้าจอ ไม่รวมเนื้อหาของ Element ที่ถูกซ่อนด้วย CSS เช่น display: none
+ตัวอย่าง เช่น "Hello world" (ไม่รวมคำว่า "hidden")
+
+element.textContent คืนค่าเนื้อหาข้อความทั้งหมดที่อยู่ใน Element ตามโครงสร้าง DOM โดยไม่สนใจว่า Element นั้นถูกซ่อนด้วย CSS หรือไม่
+ตัวอย่าง เช่น "Hello hidden world"

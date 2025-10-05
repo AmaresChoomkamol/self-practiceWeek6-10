@@ -18,3 +18,12 @@ Week 7
 ใช้ textContent สำหรับข้อความล้วน และ innerHTML สำหรับเนื้อหาที่มี Tag HTML
 ใช้ nodeType เพื่อระบุว่าเป็น Element Attribute หรือ Text Node
 เปรียบเทียบ innerHTML innerText และ textContent
+
+Week 8
+
+เลือก Element เดี่ยวโดยใช้ getElementById หรือ querySelector เพื่อเลือก Element แรกที่ตรงเงื่อนไข
+เลือก Element กลุ่ม ใช้ querySelectorAll (NodeList) และ getElementsBy (HTMLCollection)
+จัดการ Collection ระหว่าง NodeList (ใช้ forEach ได้) กับ HTMLCollection (ต้องใช้ Array.from() ก่อน)
+ลบ Element ใช้ parentElement.removeChild(childElement)
+เพิ่ม Element ใช้ createElement และ parentElement.insertBefore(new, reference)
+แทนที่ Element ใช้ createElement และ parentElement.replaceChild(new, old)

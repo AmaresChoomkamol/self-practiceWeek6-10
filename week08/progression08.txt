@@ -1,0 +1,19 @@
+1. การเลือก Element
+
+เลือก Element เดี่ยวใช้ document.getElementById() และ document.querySelector() เพื่อเลือก Element แรกที่ตรงตามเงื่อนไข
+เลือก Element เป็นกลุ่มใช้ document.querySelectorAll('.class') จะคืนค่าเป็น NodeList
+เลือก Attribute Tag Class (HTMLCollection) ใช้ getElementsByName() getElementsByTagName() และ getElementsByClassName() จะคืนค่าเป็น HTMLCollection
+
+2. Traversal
+
+ความแตกต่างของ Collection NodeList จาก querySelectorAll getElementsByName สามารถใช้ .forEach() ได้โดยตรง แต่ HTMLCollection จาก getElementsByTagName getElementsByClassName ต้องแปลงเป็น Array ก่อนด้วย Array.from() จึงจะใช้ Method Array ได้
+Sibling วนลูปผ่าน Element ลูกทั้งหมดโดยใช้ความสัมพันธ์แบบพี่น้อง เริ่มจาก firstElementChild และวนซ้ำด้วย nextElementSibling ในลูป 
+ใช้วิธีการลูปใน Collection และตรวจสอบ textContent.trim().includes('...') เพื่อหา Element ที่มีข้อความที่ต้องการ เช่น หา "Beef Soup"
+
+3. การเพิ่ม ลบ แก้ไข Element
+
+ลบ Element หา Element แม่และใช้ Method .removeChild() เพื่อลบ Element ลูกออกจาก DOM
+เพิ่ม Element สร้าง Element ใหม่ด้วย document.createElement('li') และกำหนด textContent setAttribute
+หา Element ที่จะใช้เป็น reference เช่น beefElement ใช้ Method .insertBefore(newElement, referenceElement) เพื่อแทรก Element ใหม่ก่อนหน้าจุด reference
+แทนที่ Element สร้าง Element ใหม่ เช่น "Pork Soup" ด้วย document.createElement('li')
+หา Element เดิมที่ต้องการแทนที่ เช่น beefElement ใช้ Method .replaceChild(newElement, oldElement) เพื่อสลับ Element

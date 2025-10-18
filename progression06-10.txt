@@ -27,3 +27,18 @@ Week 8
 ลบ Element ใช้ parentElement.removeChild(childElement)
 เพิ่ม Element ใช้ createElement และ parentElement.insertBefore(new, reference)
 แทนที่ Element ใช้ createElement และ parentElement.replaceChild(new, old)
+
+Week 9
+
+ผูกหรือลบ Handler ใช้ addEventListener และ removeEventListener (ต้องใช้ Named Function สำหรับการลบ)
+preventDefault ใช้เพื่อ ยกเลิกพฤติกรรมดั้งเดิม ของ Link หรือ Form Submit
+Event Flow เข้าใจการไหลของเหตุการณ์ Bubbling โดยแยกความแตกต่างระหว่าง event.target (Element เป้าหมาย) 
+และ event.currentTarget (Element ที่กำลังจัดการ)
+Load Events แยกความแตกต่างระหว่าง DOMContentLoaded (DOM Ready) และ window.load (All Resources Loaded)
+Events หลากหลาย: มีการจัดการ Mouse Keyboard Scroll และ Resize Events ของ window
+
+Week 10
+
+Cookies ใช้ CookieUtil Class ในการ Get Set Unset Cookies พร้อมกำหนดวันหมดอายุ (expires)
+localStorage จัดเก็บข้อมูลถาวรข้าม Session ถาวร เช่น การนับจำนวนครั้งการเข้าชม (Counter)
+sessionStorage จัดเก็บข้อมูลชั่วคราวสำหรับ Session ปัจจุบันเท่านั้น (Session-based) และถูกลบทิ้งเมื่อปิดแท็บ browser

@@ -1,0 +1,48 @@
+1. addEventListener
+
+ใช้ addEventListener('event', handlerFunction) ในการผูกฟังก์ชันจัดการเหตุการณ์เข้ากับ DOM element ต่างๆ 
+เช่น <button> <div> <body> และ window โดยใช้ Anonymous Function หรือ Named Function
+
+2. Event Flow (Bubbling และ Capturing)
+
+ทดสอบการทำงานของ Event Bubbling (ค่าเริ่มต้น) โดยที่เหตุการณ์จะแพร่กระจายจาก Element เป้าหมาย
+ขึ้นไปยังบรรพบุรุษ (event.eventPhase: 2 -> 3)
+
+3. การยกเลิกการทำงานเริ่มต้นของเหตุการณ์ (preventDefault)
+
+ใช้ e.preventDefault() เพื่อหยุดพฤติกรรมดั้งเดิมของ Element เช่น
+ป้องกันการเปลี่ยนหน้าเมื่อคลิก Link (<a>)
+ป้องกัน Form ไม่ให้ถูก Submit เมื่อคลิกปุ่ม submit
+
+4. ลบ Handler Function ด้วย removeEventListener
+
+ใช้ removeEventListener('event', handlerFunction) เพื่อยกเลิกการผูกฟังก์ชันจัดการเหตุการณ์ 
+โดยต้องใช้ Named Function ในการผูกและยกเลิกเท่านั้น
+
+okButton.addEventListener('click', getTarget) // ผูก Named Function
+okButton.removeEventListener('click', getTarget) // ลบ Named Function ออก
+ไม่สามารถลบ Anonymous Function ได้โดยตรง
+
+5. Window Load Events
+
+ใช้เหตุการณ์ที่เกี่ยวข้องกับการโหลดหน้าเว็บ
+DOMContentLoaded: ทำงานเมื่อ DOM Tree ถูกสร้างเสร็จแล้ว 
+สามารถเข้าถึง Element ได้ก่อน ทรัพยากรภายนอกจะโหลดเสร็จ
+load บน window ทำงานเมื่อ ทุกอย่าง (DOM, CSS, รูปภาพ, Script) โหลดเสร็จสมบูรณ์แล้ว
+
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM is ready!')
+  // สามารถเพิ่ม Element เข้าไปใน body ได้
+})
+window.addEventListener('load', () => {
+  console.log('All resources are fully loaded!')
+})
+
+6. เหตุการณ์ระดับ Window และ Input Events
+
+Window Events: ใช้ window.addEventListener เพื่อจัดการเหตุการณ์ของหน้าต่างเบราว์เซอร์ทั้งหมด เช่น
+resize: เมื่อขนาดหน้าต่างเปลี่ยน
+scroll: เมื่อมีการเลื่อนหน้าจอ
+Mouse Events: mousemove mouseout mouseover
+Keyboard Events: keyup
+

@@ -1,0 +1,24 @@
+1. Client-Side Data Storage
+
+ใช้ Cookies localStorage sessionStorage ในการจัดเก็บข้อมูลบน browser ของผู้ใช้
+
+2. จัดการ Cookie ด้วย Utility Class
+
+สร้าง CookieUtil class เพื่อ Encapsulate การทำงานของ Cookie ทำให้การจัดการง่ายขึ้น
+static get(name) ดึงค่าของ Cookie ตามชื่อที่ระบุ โดยจัดการการถอดรหัส (decodeURIComponent) และการค้นหาตำแหน่งของ Cookie ใน document.cookie
+static set(name, value, expires) ตั้งค่า Cookie ใหม่ พร้อมรองรับการตั้งวันหมดอายุ (expires) และการเข้ารหัสค่า (encodeURIComponent)
+static unset(name) ลบ Cookie โดยการตั้งค่าใหม่ด้วยค่าว่าง ('') และกำหนดวันหมดอายุย้อนหลัง (new Date(0)) ทำให้ browser ลบทิ้ง
+
+3. ใช้งาน localStorage
+
+ใช้ localStorage สำหรับเก็บข้อมูลที่ต้องการให้อยู่ถาวรแม้จะปิด browser ไปแล้ว
+ทดสอบการนับจำนวนครั้งในการโหลดหน้า
+ใช้ localStorage.getItem("count") localStorage.setItem("count", value)
+ใช้ลบข้อมูล localStorage.removeItem("count") และ localStorage.clear()
+
+4. ใช้งาน sessionStorage
+
+ใช้ sessionStorage สำหรับเก็บข้อมูลชั่วคราวที่อยู่ใน Session นั้น (จะถูกลบทิ้งเมื่อปิดแท็บ browser)
+หลักการใช้งานเหมือน localStorage แต่ข้อมูลจะหายไปเมื่อปิด Session
+sessionStorage.removeItem("count")
+sessionStorage.clear()
